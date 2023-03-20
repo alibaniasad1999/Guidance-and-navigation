@@ -25,8 +25,9 @@ set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
 ylabel('Velocity', 'interpreter', 'latex', 'FontSize', 24);
 title('')
 set(gcf,'Position',[500 500 1000 800])
-print('../../Figure/Q1/LPF','-depsc');
+print('../../Figure/Q4/LPF','-depsc');
 hold off
+close all
 
 %% Kalman %%
 subplot(2, 1, 1)
@@ -50,5 +51,5 @@ set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
 ylabel('Velocity', 'interpreter', 'latex', 'FontSize', 24);
 title('')
 set(gcf,'Position',[500 500 1000 800])
-print('../../Figure/Q1/Kalman','-depsc');
+print('../../Figure/Q4/Kalman','-depsc');
 
