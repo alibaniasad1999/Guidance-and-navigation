@@ -3,6 +3,19 @@ clear;
 %% Q4 (Kalman vs los pass) %%
 Q4_data = sim('Q4_simulink.slx'); % run simulink
 
+%% real vs noisy
+plot(Q4_data.position, 'r', 'linewidth', 2);
+hold on
+plot(Q4_data.noisy_position, ':k', 'linewidth', 2);
+
+legend('Real Position', 'Noisy Position',...
+    'Location','northeast', 'FontSize', 20);
+set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
+ylabel('Position', 'interpreter', 'latex', 'FontSize', 24);
+title('')
+print('../../Figure/Q4/real_vs_noisy','-depsc');
+hold off
+close all
 %% LPF %%
 subplot(2, 1, 1)
 plot(Q4_data.LPF_position, 'r', 'linewidth', 2);
