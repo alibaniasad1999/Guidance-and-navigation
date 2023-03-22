@@ -35,6 +35,24 @@ d = sym('d', 'real');
 eq = (x_gps - x).^2 + (y_gps - y).^2 + (z_gps - z).^2 - (c*(t_gps - d)).^2 ...
     == 0;
 
+gps_ans = vpasolve(eq);
+
+x_ans = gps_ans.x;
+y_ans = gps_ans.y;
+z_ans = gps_ans.z;
+d_ans = gps_ans.d;
+
+for i = 1:length(x)
+    fprintf("%d conition x=%.2f, y=%.2f, z=%.2f\n",...
+        i, x_ans(i), y_ans(i), z_ans(i))
+end
+
+%% latex table version %%
+for i = 1:length(x_ans)
+    fprintf("\\lr{%.2f} & \\lr{%.2f} & \\lr{%.2f} & \\lr{%.2f} & \\lr{%d}\\\\\n",...
+        d_ans(i), z_ans(i), y_ans(i), x_ans(i), i)
+end
+
 %% part II %% calculate all permutation
 
 eq = subs(eq, d, 0.05);
@@ -48,5 +66,9 @@ for i = 1:length(all_eq)
         fprintf('no valid answer\n');
     end
 end
+
+
+%% location error %%
+t_c = 80 / 1000 / c;
 
 
