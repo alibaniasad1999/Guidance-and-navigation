@@ -2,8 +2,6 @@ clear;
 clc;
 %% optimization %%
 
-% genetic algorithm optimization %
-
 attitude = fsolve(@miss_distance_calculator,[0, 0]);
 
 
