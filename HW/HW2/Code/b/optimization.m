@@ -4,12 +4,11 @@ clc;
 
 % genetic algorithm optimization %
 
-[ga_ans, cost] = ga(@miss_distance_calculator, 2, [], [], [], [],...
-    -pi*ones(1, 2), pi*ones(1, 2)); % with -pi:pi bound
+x = fsolve(@miss_distance_calculator,[0, 0]);
 
 
 fprintf("miss distance with theta_0=%.2f and psi_0=%.2f is %.4f m\n", ...
-    [ga_ans(1), ga_ans(2), cost])
+    [x(1), x(2), miss_distance_calculator(x)])
 
 %% save data %%
 
@@ -19,4 +18,4 @@ str_now_time(12) = '-';
 str_now_time(15) = '-';
 str_now_time(18) = '-';
 save(append(str_now_time, '-',...
-    'ga_answer'), 'ga_ans');
+    'ga_answer'), 'x');

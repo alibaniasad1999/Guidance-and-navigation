@@ -4,7 +4,7 @@ init; % run init script
 
 modelname = "b";
 simIn = Simulink.SimulationInput(modelname);
-simIn = setVariable(simIn,'attitude_m0',attitude);
+simIn = setVariable(simIn,'attitude_m0',attitude*pi/180);
 
 simulation_data = sim(simIn);
 
