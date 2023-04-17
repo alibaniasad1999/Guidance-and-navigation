@@ -1,5 +1,3 @@
-clear;
-clc;
 %% init data %%
 % missile %
 x_m0 = 0;
@@ -9,7 +7,7 @@ state_m0 = [x_m0; y_m0; z_m0];
 V_m0 = 100; % m/s
 theta_m0 = 0;
 psi_m0 = 0;
-attitude_m0 = [theta_m0; psi_m0];
+% attitude_m0 = [theta_m0; psi_m0]; usin ga for optimization
 % target %
 x_t0 = 8000; % m/s
 y_t0 = 0;
