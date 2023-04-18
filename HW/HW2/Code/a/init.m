@@ -26,14 +26,14 @@ T_VG_m = [cos(theta_m0)*cos(psi_m0)   cos(theta_m0)*sin(psi_m0)   sin(theta_m0)
         -sin(theta_m0)*cos(psi_m0)  -sin(theta_m0)*sin(psi_m0)    cos(theta_m0)];
 
 % transformation %
-d_state_m = T_VG_m*[V_m0;0;0;]; 
+d_state_m = T_VG_m'*[V_m0;0;0;]; 
 
 % transfer matrix %
 T_VG_t = [cos(theta_t0)*cos(psi_t0)   cos(theta_t0)*sin(psi_t0)   sin(theta_t0)
             -sin(psi_t0)               cos(psi_t0)            0
         -sin(theta_t0)*cos(psi_t0)  -sin(theta_t0)*sin(psi_t0)    cos(theta_t0)];
 
-d_state_t = T_VG_t*[V_t0;0;0;]; 
+d_state_t = T_VG_t'*[V_t0;0;0;]; 
 
 
 
