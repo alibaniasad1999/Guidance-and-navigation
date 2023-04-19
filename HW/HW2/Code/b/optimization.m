@@ -2,7 +2,7 @@ clear;
 clc;
 %% optimization %%
 
-attitude = fsolve(@miss_distance_calculator,[0, 0]);
+attitude = fsolve(@miss_distance_calculator,[40, 0]);
 
 
 fprintf("miss distance with theta_0=%.2f and psi_0=%.2f is %.4f m\n", ...
