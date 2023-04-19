@@ -34,4 +34,11 @@ T_VG_t = [cos(theta_t0)*cos(psi_t0)   cos(theta_t0)*sin(psi_t0)   sin(theta_t0)
 d_state_t = T_VG_t'*[V_t0;0;0;]; 
 
 
+% guidance parameter %
+load('19-Apr-2023-15-45-38-answer.mat')
+K_epsilon = k_LOS(1);
+K_sigma = k_LOS(1);
+
+
+
 

@@ -2,7 +2,7 @@ function miss_distance = miss_distance_calculator(k)
 
 init; % run init script
 
-modelname = "c";
+modelname = "d";
 simIn = Simulink.SimulationInput(modelname);
 simIn = setVariable(simIn,'K_epsilon',k(1));
 simIn = setVariable(simIn,'k_sigma',k(2));
