@@ -20,7 +20,7 @@ end
 
 % attitude %
 set(gca, 'FontSize', 16)
-plot(out.missle_attitude, 'linewidth', 2);
+plot(out.missle_attitude*180/pi, 'linewidth', 2);
 legend('\theta', '\psi', 'Location','southwest', 'FontSize', 20);
 set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
 xlabel('time($\sec)$', 'interpreter', 'latex', 'FontSize', 24);
@@ -67,7 +67,7 @@ end
 
 % attitude %
 set(gca, 'FontSize', 16)
-plot(out.target_attitude, 'linewidth', 2);
+plot(out.target_attitude*180/pi, 'linewidth', 2);
 legend('\theta', '\psi', 'Location','southwest', 'FontSize', 20);
 set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
 xlabel('time($\sec)$', 'interpreter', 'latex', 'FontSize', 24);
