@@ -2,7 +2,7 @@ function miss_distance = miss_distance_calculator(k)
 
 init; % run init script
 
-modelname = "c";
+modelname = "e";
 simIn = Simulink.SimulationInput(modelname);
 simIn = setVariable(simIn,'K_epsilon',k(1));
 simIn = setVariable(simIn,'k_sigma',k(2));
@@ -11,6 +11,7 @@ simIn = setVariable(simIn,'k_sigma',k(2));
 simulation_data = sim(simIn);
 
 miss_distance = min(simulation_data.distance.Data);
+miss_distance_no_g = min(simulation_data.distance_no_g.Data);
 
-fprintf("miss distance: %.4f, epsilon gain:%.2f, sigma gain:%.2f \n",...
-    miss_distance, k(1), k(2));
+fprintf("miss distance: %.4f no g miss distance :%.4f \n",...
+    miss_distance, miss_distance_no_g);
