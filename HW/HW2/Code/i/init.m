@@ -49,6 +49,4 @@ load('../c/19-Apr-2023-15-45-38-answer.mat');
 K_epsilon = k_LOS(1);
 k_sigma = k_LOS(2);
 
-% generate noise %
-noise_generator;
 
