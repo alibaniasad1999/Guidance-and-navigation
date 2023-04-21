@@ -13,9 +13,9 @@ x_t0 = 8000; % m/s
 y_t0 = 0;
 z_t0 = 3000; % m/s
 state_t0 = [x_t0; y_t0; z_t0];
-V_t0 = 300; % m/s
+% V_t0 = 300; % m/s good is 106.9
 theta_t0 = 0;
-psi_t0 = 0;
+psi_t0 = pi;
 attitude_t0 = [theta_t0; psi_t0];
 
 % transfer matrix %
@@ -32,6 +32,18 @@ T_VG_t = [cos(theta_t0)*cos(psi_t0)   cos(theta_t0)*sin(psi_t0)   sin(theta_t0)
         -sin(theta_t0)*cos(psi_t0)  -sin(theta_t0)*sin(psi_t0)    cos(theta_t0)];
 
 d_state_t = T_VG_t'*[V_t0;0;0;]; 
+
+theta_t0_new_init = 0;
+psi_t0_new_init = 0;
+attitude_t0_new_init = [theta_t0_new_init; psi_t0_new_init];
+
+% transfer matrix %
+T_VG_t_new_init = [cos(theta_t0_new_init)*cos(psi_t0_new_init)   cos(theta_t0_new_init)*sin(psi_t0_new_init)   sin(theta_t0_new_init)
+            -sin(psi_t0_new_init)               cos(psi_t0_new_init)            0
+        -sin(theta_t0_new_init)*cos(psi_t0_new_init)  -sin(theta_t0_new_init)*sin(psi_t0_new_init)    cos(theta_t0_new_init)];
+
+d_state_t_new_init = T_VG_t_new_init'*[V_t0;0;0;]; 
+
 
 
 
