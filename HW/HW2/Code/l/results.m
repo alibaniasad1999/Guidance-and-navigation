@@ -53,7 +53,7 @@ axis tight
 
 [dir_state, ~, ~] = mkdir('../../Figure/l');
 if dir_state
-    print('../../Figure/l/miss_distance','-depsc');
+    print('../../Figure/l/miss_distance_with_time','-depsc');
 else
     fprintf("Ooooooops\n")
 end
@@ -158,10 +158,10 @@ set(gca, 'FontSize', 16)
 
 plot3(x_m_lead_angle, y_m_lead_angle, z_m_lead_angle, 'linewidth', 2);
 hold on;
-plot3(x_t_lead_angle, y_t_lead_angle, z_t_lead_angle, '--', 'linewidth', 2);
+plot3(x_t_lead_angle_limited, y_t_lead_angle_limited, z_t_lead_angle_limited, '--', 'linewidth', 2);
 ylim([-500, 500])
-legend('missle CLOS', 'target CLOS',...
-    'missle lead angle', 'target Lead Angle',...
+legend('missle lead angle', 'target lead angle',...
+    'missle lead angle with limit', 'target Lead Angle with limit',...
     'Location','northeast', 'FontSize', 20);
 set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
 xlabel('X(m)', 'interpreter', 'latex', 'FontSize', 24);

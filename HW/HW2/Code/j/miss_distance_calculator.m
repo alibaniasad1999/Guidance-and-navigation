@@ -11,6 +11,7 @@ simIn = setVariable(simIn,'k_sigma',k_LOS(2));
 simulation_data = sim(simIn);
 
 miss_distance = min(simulation_data.distance_lead_angle.Data);
+miss_distance_CLOS = min(simulation_data.distance_CLOS.Data);
 
-fprintf("with k epsilon: %.4f and k sigma: %.4f, miss distance is: %.4f\n", ...
-    k(1), k(2), miss_distance);
+fprintf("miss distance CLOS: %.4f and CLOS with lead Angle: %.4f\n", ...
+    miss_distance_CLOS, miss_distance);
