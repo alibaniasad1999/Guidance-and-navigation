@@ -4,7 +4,7 @@ clc;
 %% missle %%
 load('../c/19-Apr-2023-15-45-38-answer.mat');
 load('../j/22-Apr-2023-17-19-12-answer.mat')
-modelname = "part_k";
+modelname = "part_l";
 simIn = Simulink.SimulationInput(modelname);
 simIn = setVariable(simIn,'k_epsilon_lead_angle',k(1));
 simIn = setVariable(simIn,'k_sigma_lead_angle',k(2));
@@ -51,9 +51,9 @@ ylabel('Beam angle (deg)', 'interpreter', 'latex', 'FontSize', 24);
 axis tight
 
 
-[dir_state, ~, ~] = mkdir('../../Figure/k');
+[dir_state, ~, ~] = mkdir('../../Figure/l');
 if dir_state
-    print('../../Figure/k/miss_distance','-depsc');
+    print('../../Figure/l/miss_distance','-depsc');
 else
     fprintf("Ooooooops\n")
 end
