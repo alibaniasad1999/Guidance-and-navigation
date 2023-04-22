@@ -18,6 +18,7 @@ height=900;
 f.Position = [15 15 width height];
 
 [~, min_disatance_index] = min(simulation_data.distance_CLOS.Data);
+[~, min_disatance_index_with_filter] = min(simulation_data.distance_CLOS_with_filter.Data);
 
 x_m_CLOS = simulation_data.missle_state_CLOS.Data(1:min_disatance_index, 1);
 x_m_CLOS = reshape(x_m_CLOS, [length(x_m_CLOS), 1]);
@@ -34,18 +35,18 @@ y_t_CLOS = reshape(y_t_CLOS, [1, length(y_t_CLOS)]);
 z_t_CLOS = simulation_data.target_state_CLOS.Data(3, 1, 1:min_disatance_index);
 z_t_CLOS = reshape(z_t_CLOS, [1, length(z_t_CLOS)]);
 
-x_t_CLOS_with_filter = simulation_data.target_state_CLOS.Data(1, 1, :);
+x_t_CLOS_with_filter = simulation_data.target_state_CLOS_with_filter.Data(1, 1, 1:min_disatance_index_with_filter);
 x_t_CLOS_with_filter = reshape(x_t_CLOS_with_filter, [1, length(x_t_CLOS_with_filter)]);
-y_t_CLOS_with_filter = simulation_data.target_state_CLOS.Data(2, 1, :);
+y_t_CLOS_with_filter = simulation_data.target_state_CLOS_with_filter.Data(2, 1, 1:min_disatance_index_with_filter);
 y_t_CLOS_with_filter = reshape(y_t_CLOS_with_filter, [1, length(y_t_CLOS_with_filter)]);
-z_t_CLOS_with_filter = simulation_data.target_state_CLOS.Data(3, 1, :);
+z_t_CLOS_with_filter = simulation_data.target_state_CLOS_with_filter.Data(3, 1, 1:min_disatance_index_with_filter);
 z_t_CLOS_with_filter = reshape(z_t_CLOS_with_filter, [1, length(z_t_CLOS_with_filter)]);
 
-x_m_CLOS_with_filter = simulation_data.missle_state_CLOS.Data(:, 1);
+x_m_CLOS_with_filter = simulation_data.missle_state_CLOS_with_filter.Data(1:min_disatance_index_with_filter, 1);
 x_m_CLOS_with_filter = reshape(x_m_CLOS_with_filter, [length(x_m_CLOS_with_filter), 1]);
-y_m_CLOS_with_filter = simulation_data.missle_state_CLOS.Data(:, 2);
+y_m_CLOS_with_filter = simulation_data.missle_state_CLOS_with_filter.Data(1:min_disatance_index_with_filter, 2);
 y_m_CLOS_with_filter = reshape(y_m_CLOS_with_filter, [length(x_m_CLOS_with_filter), 1]);
-z_m_CLOS_with_filter = simulation_data.missle_state_CLOS.Data(:, 3);
+z_m_CLOS_with_filter = simulation_data.missle_state_CLOS_with_filter.Data(1:min_disatance_index_with_filter, 3);
 z_m_CLOS_with_filter = reshape(z_m_CLOS_with_filter, [length(z_m_CLOS_with_filter), 1]);
 
 subplot(1, 2, 1);
@@ -104,11 +105,11 @@ zlabel('Z(m)', 'interpreter', 'latex', 'FontSize', 24);
 % title('CLOS');
 set(gca, 'FontSize', 16)
 
-plot3(x_m_CLOS, y_m_CLOS, z_m_CLOS, 'linewidth', 2);
+plot3(x_m_CLOS_with_filter, y_m_CLOS_with_filter, z_m_CLOS_with_filter, 'linewidth', 2);
 hold on;
 plot3(x_t_CLOS_with_filter, y_t_CLOS_with_filter, z_t_CLOS_with_filter, '--', 'linewidth', 2);
 ylim([-500, 500])
-legend('missle CLOS', 'target B]CLOS',...
+legend('missle CLOS', 'target CLOS',...
     'missle CLOS  with filter', 'target CLOS with filter',...
     'Location','northeast', 'FontSize', 20);
 set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
