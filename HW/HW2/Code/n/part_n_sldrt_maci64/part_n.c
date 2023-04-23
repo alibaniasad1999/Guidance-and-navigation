@@ -3,9 +3,9 @@
  *
  * Code generation for model "part_n".
  *
- * Model version              : 1.65
+ * Model version              : 1.66
  * Simulink Coder version : 9.8 (R2022b) 13-May-2022
- * C source code generated on : Sun Apr 23 01:40:11 2023
+ * C source code generated on : Sun Apr 23 03:51:46 2023
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -266,6 +266,12 @@ void part_n_output(void)
   if (rtmIsMajorTimeStep(part_n_M)) {
     /* Memory: '<S19>/Memory' */
     part_n_B.Memory = part_n_DW.Memory_PreviousInput;
+
+    /* Delay: '<S17>/Delay' */
+    part_n_B.Delay = part_n_DW.Delay_DSTATE;
+
+    /* Delay: '<S18>/Delay' */
+    part_n_B.Delay_f = part_n_DW.Delay_DSTATE_f;
   }
 
   /* Switch: '<S19>/Reset' incorporates:
@@ -288,13 +294,6 @@ void part_n_output(void)
   }
 
   /* End of Switch: '<S19>/Reset' */
-  if (rtmIsMajorTimeStep(part_n_M)) {
-    /* Delay: '<S17>/Delay' */
-    part_n_B.Delay = part_n_DW.Delay_DSTATE;
-
-    /* Delay: '<S18>/Delay' */
-    part_n_B.Delay_f = part_n_DW.Delay_DSTATE_f;
-  }
 
   /* Switch: '<S17>/Switch' incorporates:
    *  Constant: '<S17>/Constant3'
@@ -1087,10 +1086,10 @@ RT_MODEL_part_n_T *part_n(void)
   part_n_M->Timing.stepSize1 = 0.002;
 
   /* External mode info */
-  part_n_M->Sizes.checksums[0] = (1424759244U);
-  part_n_M->Sizes.checksums[1] = (3191622454U);
-  part_n_M->Sizes.checksums[2] = (1751504332U);
-  part_n_M->Sizes.checksums[3] = (572030179U);
+  part_n_M->Sizes.checksums[0] = (4057179754U);
+  part_n_M->Sizes.checksums[1] = (2287370092U);
+  part_n_M->Sizes.checksums[2] = (1756152176U);
+  part_n_M->Sizes.checksums[3] = (1270584000U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;

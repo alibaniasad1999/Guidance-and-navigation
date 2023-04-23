@@ -3,9 +3,9 @@
  *
  * Code generation for model "part_n".
  *
- * Model version              : 1.65
+ * Model version              : 1.66
  * Simulink Coder version : 9.8 (R2022b) 13-May-2022
- * C source code generated on : Sun Apr 23 01:40:11 2023
+ * C source code generated on : Sun Apr 23 03:51:46 2023
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -77,14 +77,12 @@ static DataTypeTransition rtBTransitions[] = {
   { (char_T *)(&part_n_B.AND), 8, 0, 1 }
   ,
 
-  { (char_T *)(&part_n_DW.Delay_DSTATE), 0, 0, 5 },
-
-  { (char_T *)(&part_n_DW.Scope19_PWORK.LoggedData), 11, 0, 1 }
+  { (char_T *)(&part_n_DW.Delay_DSTATE), 0, 0, 5 }
 };
 
 /* data type transition table for block I/O structure */
 static DataTypeTransitionTable rtBTransTable = {
-  4U,
+  3U,
   rtBTransitions
 };
 

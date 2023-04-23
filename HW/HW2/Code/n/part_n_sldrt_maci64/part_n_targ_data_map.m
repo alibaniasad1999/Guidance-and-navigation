@@ -476,7 +476,7 @@
     ;%*******************
     
         nTotData      = 0; %add to this count as we go
-        nTotSects     = 2;
+        nTotSects     = 1;
         sectIdxOffset = 2;
 
         ;%
@@ -526,17 +526,6 @@
             dworkMap.sections(1) = section;
             clear section
 
-            section.nData     = 1;
-            section.data(1)  = dumData; %prealloc
-
-                    ;% part_n_DW.Scope19_PWORK.LoggedData
-                    section.data(1).logicalSrcIdx = 5;
-                    section.data(1).dtTransOffset = 0;
-
-            nTotData = nTotData + section.nData;
-            dworkMap.sections(2) = section;
-            clear section
-
 
             ;%
             ;% Non-auto Data (dwork)
@@ -563,8 +552,8 @@
     ;%
 
 
-    targMap.checksum0 = 1424759244;
-    targMap.checksum1 = 3191622454;
-    targMap.checksum2 = 1751504332;
-    targMap.checksum3 = 572030179;
+    targMap.checksum0 = 4057179754;
+    targMap.checksum1 = 2287370092;
+    targMap.checksum2 = 1756152176;
+    targMap.checksum3 = 1270584000;
 
