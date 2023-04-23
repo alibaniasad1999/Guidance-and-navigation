@@ -224,4 +224,6 @@ else
 end
 hold off
 
+miss_distance_calculator(k);
+
 
