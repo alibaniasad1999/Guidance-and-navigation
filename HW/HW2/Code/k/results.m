@@ -41,8 +41,8 @@ subplot(2, 1, 2)
 plot(simulation_data.beam_angle.Time(1:min_disatance_index_lead_angle),...
     simulation_data.beam_angle.Data(1:min_disatance_index_lead_angle)*180/pi, 'linewidth', 2);
 hold on 
-plot(simulation_data.beam_angle.Time(1:min_disatance_index_lead_angle),3*ones(1, length(simulation_data.beam_angle.Time(1:min_disatance_index_lead_angle))), '--r', 'linewidth', 2)
-plot(simulation_data.beam_angle.Time(1:min_disatance_index_lead_angle),-3*ones(1, length(simulation_data.beam_angle.Time(1:min_disatance_index_lead_angle))), '--r', 'linewidth', 2)
+plot(simulation_data.beam_angle.Time(1:min_disatance_index_lead_angle),3/2*ones(1, length(simulation_data.beam_angle.Time(1:min_disatance_index_lead_angle))), '--r', 'linewidth', 2)
+plot(simulation_data.beam_angle.Time(1:min_disatance_index_lead_angle),-3/2*ones(1, length(simulation_data.beam_angle.Time(1:min_disatance_index_lead_angle))), '--r', 'linewidth', 2)
 
 title('Beam Angle');
 set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
