@@ -13,7 +13,7 @@ V_m0 = 200; % m/s
 % target %
 x_t0 = 12000; % m/s
 y_t0 = 0;
-z_t0 = -3000; % m/s
+z_t0 = 3000; % m/s
 state_t0 = [x_t0; y_t0; z_t0];
 V_t0 = 300; % m/s good is 106.9
 theta_t0 = 0;
