@@ -6,6 +6,6 @@ for T = 0.05:0.05:1
     simIn = Simulink.SimulationInput(modelname);
     
     simIn = setVariable(simIn,'T',T);
-    
+    T
     simulation_data = sim(simIn);
 end

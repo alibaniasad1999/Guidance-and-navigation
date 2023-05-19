@@ -6,9 +6,9 @@ x_m0 = 0;
 y_m0 = 0;
 z_m0 = 0;
 state_m0 = [x_m0; y_m0; z_m0];
-load('../a/16-May-2023-21-32-32-answer.mat'); % load optimum attitude
-theta_m0 = 71.50*pi/180;
-psi_m0 = 19.47*pi/180;
+load('../a/18-May-2023-16-56-22-answer.mat', 'attitude'); % load optimum attitude
+theta_m0 = attitude(1)*pi/180;
+psi_m0 = attitude(2)*pi/180;
 attitude_m0 = [theta_m0; psi_m0];
 V_m0 = 200; % m/s
 % target %
