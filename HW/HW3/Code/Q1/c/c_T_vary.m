@@ -1,4 +1,4 @@
-%% calculation of control effort in vary of N parameter %%
+%% calculation of control effort in vary of T parameter %%
 
 
 for T = 0.05:0.05:1
@@ -6,6 +6,5 @@ for T = 0.05:0.05:1
     simIn = Simulink.SimulationInput(modelname);
     
     simIn = setVariable(simIn,'T',T);
-    T
     simulation_data = sim(simIn);
 end
