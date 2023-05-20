@@ -146,7 +146,7 @@ zlabel('Z(m)', 'interpreter', 'latex', 'FontSize', 24);
 
 [dir_state, ~, ~] = mkdir('../../../Figure/Q1/a');
 if dir_state
-    print('../../../Figure/Q1/a/collision_course','-depsc');
+    print('../../../Figure/Q1/a/two_point','-depsc');
 else
     fprintf("Ooooooops\n")
 end
@@ -202,3 +202,83 @@ else
     fprintf("Ooooooops\n")
 end
 hold off;
+%% command plot %%
+time_2_plot = 19.7; % sec
+time_index = find(simulation_a_II.tout==time_2_plot);
+
+set(gca, 'FontSize', 16)
+plot(simulation_a_II.tout(1:time_index), simulation_a_II.guidance_command.Data(1:time_index, 2)...
+    , 'b', 'LineWidth', 2);
+xlabel('Time(Second)', 'interpreter', 'latex', 'FontSize', 24);
+ylabel('Guidance Command Y axis(m$/\sec^2)$', 'interpreter', 'latex', 'FontSize', 24);
+axis tight
+set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
+if dir_state
+    print('../../../Figure/Q1/a/GC_y','-depsc');
+else
+    fprintf("Ooooooops\n")
+end
+
+set(gca, 'FontSize', 16)
+plot(simulation_a_II.tout(1:time_index), simulation_a_II.guidance_command.Data(1:time_index, 3)...
+    , 'b', 'LineWidth', 2);
+xlabel('Time(Second)', 'interpreter', 'latex', 'FontSize', 24);
+ylabel('Controller Command Y axis(m$/\sec^2)$', 'interpreter', 'latex', 'FontSize', 24);
+axis tight
+set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
+if dir_state
+    print('../../../Figure/Q1/a/CC_y','-depsc');
+else
+    fprintf("Ooooooops\n")
+end
+set(gca, 'FontSize', 16)
+plot(simulation_a_II.tout(1:time_index), simulation_a_II.guidance_command.Data(1:time_index, 3)...
+    , 'b', 'LineWidth', 2);
+xlabel('Time(Second)', 'interpreter', 'latex', 'FontSize', 24);
+ylabel('Guidance Command Z axis(m$/\sec^2)$', 'interpreter', 'latex', 'FontSize', 24);
+axis tight
+set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
+if dir_state
+    print('../../../Figure/Q1/a/GC_z','-depsc');
+else
+    fprintf("Ooooooops\n")
+end
+
+set(gca, 'FontSize', 16)
+plot(simulation_a_II.tout(1:time_index), simulation_a_II.guidance_command.Data(1:time_index, 3)...
+    , 'b', 'LineWidth', 3);
+xlabel('Time(Second)', 'interpreter', 'latex', 'FontSize', 24);
+ylabel('Controller Command Z axis(m$/\sec^2)$', 'interpreter', 'latex', 'FontSize', 24);
+axis tight
+set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
+if dir_state
+    print('../../../Figure/Q1/a/CC_z','-depsc');
+else
+    fprintf("Ooooooops\n")
+end
+
+set(gca, 'FontSize', 16)
+plot(simulation_a_II.tout(1:time_index), simulation_a_II.Omega.Data(1:time_index, 2)...
+    , 'b', 'LineWidth', 2);
+xlabel('Time(Second)', 'interpreter', 'latex', 'FontSize', 24);
+ylabel('$\Omega_y$(rad$/\sec)$', 'interpreter', 'latex', 'FontSize', 24);
+axis tight
+set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
+if dir_state
+    print('../../../Figure/Q1/a/Omega_y','-depsc');
+else
+    fprintf("Ooooooops\n")
+end
+
+set(gca, 'FontSize', 16)
+plot(simulation_a_II.tout(1:time_index), simulation_a_II.Omega.Data(1:time_index, 3)...
+    , 'b', 'LineWidth', 2);
+xlabel('Time(Second)', 'interpreter', 'latex', 'FontSize', 24);
+ylabel('$\Omega_z$(rad$/\sec)$', 'interpreter', 'latex', 'FontSize', 24);
+axis tight
+set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
+if dir_state
+    print('../../../Figure/Q1/a/Omega_z','-depsc');
+else
+    fprintf("Ooooooops\n")
+end
