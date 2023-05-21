@@ -1,4 +1,8 @@
+clear;
+clc;
+%% ploter %%
 load('MD_LA_vary.mat')
+LA = 20:5:80;
 set(gca, 'FontSize', 16)
 plot(LA, MD, 'b', 'LineWidth', 2);
 xlabel('Look Angle$(\deg)$', 'interpreter', 'latex', 'FontSize', 24);
