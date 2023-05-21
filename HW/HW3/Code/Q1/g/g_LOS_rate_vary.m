@@ -14,7 +14,7 @@ for i = 1:length(LOS_rate)
 
     MD(i) = simulation_data.miss_distance.Data(end);
 
-    fprintf('Look Angel:%.2f, i=%d\n', LOS_rate(i), i);
+    fprintf('LOS rotation:%.2f, i=%d\n', LOS_rate(i), i);
 end
 
 
