@@ -13,7 +13,6 @@ ylabel('$\frac{MD}{-V_m.HE.T}$', 'interpreter', 'latex', 'FontSize', 36);
 axis tight
 set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
 legend('TPN', 'APN', 'Location','northeast', 'FontSize', 20);
-xlabel('$T_f(\sec)$', 'interpreter', 'latex', 'FontSize', 24);
 ylabel('$\frac{MD}{-V_m.HE.T}$', 'interpreter', 'latex', 'FontSize', 24);
 [dir_state, ~, ~] = mkdir('../../../Figure/Q2/c');
 if dir_state
@@ -34,7 +33,6 @@ xlabel('$T_f(\sec)$', 'interpreter', 'latex', 'FontSize', 36);
 ylabel('$\frac{MD}{-V_m.HE.T}$', 'interpreter', 'latex', 'FontSize', 36);
 axis tight
 set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
-xlabel('$T_f(\sec)$', 'interpreter', 'latex', 'FontSize', 24);
 ylabel('$\frac{MD}{-V_m.HE.T}$', 'interpreter', 'latex', 'FontSize', 24);
 legend('TPN', 'APN', 'Location','northeast', 'FontSize', 20);
 
@@ -55,7 +53,6 @@ xlabel('$T_f(\sec)$', 'interpreter', 'latex', 'FontSize', 36);
 ylabel('$\frac{MD}{-V_m.HE.T}$', 'interpreter', 'latex', 'FontSize', 36);
 axis tight
 set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
-xlabel('$T_f(\sec)$', 'interpreter', 'latex', 'FontSize', 24);
 ylabel('$\frac{MD}{-V_m.HE.T}$', 'interpreter', 'latex', 'FontSize', 24);
 legend('TPN', 'APN', 'Location','northeast', 'FontSize', 20);
 
@@ -77,7 +74,6 @@ xlabel('$T_f(\sec)$', 'interpreter', 'latex', 'FontSize', 36);
 ylabel('$\frac{MD}{n_t.T^2}$', 'interpreter', 'latex', 'FontSize', 36);
 axis tight
 set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
-xlabel('$T_f(\sec)$', 'interpreter', 'latex', 'FontSize', 36);
 ylabel('$\frac{MD}{n_t.T^2}$', 'interpreter', 'latex', 'FontSize', 36);
 legend('TPN', 'APN', 'Location','northeast', 'FontSize', 20);
 
@@ -99,7 +95,6 @@ xlabel('$T_f(\sec)$', 'interpreter', 'latex', 'FontSize', 36);
 ylabel('$\frac{MD}{n_t.T^2}$', 'interpreter', 'latex', 'FontSize', 36);
 axis tight
 set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
-xlabel('$T_f(\sec)$', 'interpreter', 'latex', 'FontSize', 36);
 ylabel('$\frac{MD}{n_t.T^2}$', 'interpreter', 'latex', 'FontSize', 36);
 legend('TPN', 'APN', 'Location','northeast', 'FontSize', 20);
 
@@ -121,7 +116,6 @@ xlabel('$T_f(\sec)$', 'interpreter', 'latex', 'FontSize', 36);
 ylabel('$\frac{MD}{n_t.T^2}$', 'interpreter', 'latex', 'FontSize', 36);
 axis tight
 set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
-xlabel('$T_f(\sec)$', 'interpreter', 'latex', 'FontSize', 36);
 ylabel('$\frac{MD}{n_t.T^2}$', 'interpreter', 'latex', 'FontSize', 36);
 legend('TPN', 'APN', 'Location','northeast', 'FontSize', 20);
 
