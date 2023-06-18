@@ -1,3 +1,61 @@
 \section{سوال اول}
 در این سوال به بررسی مسیر بالستیک موشک و مسیر بهینه آن پرداخته شده است.
 \subsection{بخش الف}
+در این بخش به بررسی معادلات حرکت جسم نقطه در صفحه پرداخته شده است. معادلات حرکت جسم نقطه در صفحه به صورت زیر است:
+\begin{equation}
+    \label{eq:1}
+    \ddot{\boldsymbol{\mathrm{r}}} = -\dfrac{GM}{r^3}\boldsymbol{\mathrm{r}}
+\end{equation}
+پارامترهای معادله به صورت زیر تعریف می‌شوند:
+\begin{itemize}
+    \item $\boldsymbol{\mathrm{r}}$ : بردار موقعیت جسم نقطه
+    \item $G$ : ثابت گرانشی
+    \item $M$ : جرم جسم مرکزی
+    \item $r$ : فاصله جسم نقطه از مرکز جسم مرکزی
+\end{itemize}
+بردار موقعیت جسم نقطه به صورت زیر تعریف می‌شود:
+\begin{equation}
+    \label{eq:2}
+    \boldsymbol{\mathrm{r}} = x\hat{\boldsymbol{\mathrm{i}}} + y\hat{\boldsymbol{\mathrm{j}}}
+\end{equation}
+با جایگذاری معادله \eqref{eq:2} در معادله \eqref{eq:1} داریم:
+\begin{equation}
+    \label{eq:3}
+    \ddot{x}\hat{\boldsymbol{\mathrm{i}}} + \ddot{y}\hat{\boldsymbol{\mathrm{j}}} = -\dfrac{GM}{(x^2 + y^2)^{3/2}}(x\hat{\boldsymbol{\mathrm{i}}} + y\hat{\boldsymbol{\mathrm{j}}})
+\end{equation}
+بر اساس روابط بالا ارتفاع به صورت زیر بدست می‌آید.
+\begin{equation}
+    \label{eq:4}
+    h =\sqrt{x^2 + y^2} - a
+\end{equation}
+در این رابطه $a$ بیانگر شعاع زمین است. برای محاسبه سرعت 
+تغیرات ارتفاع نیز به صورت زیر تعریف می‌شود.
+\begin{equation}
+    \label{eq:5}
+    \dot{h} = \dfrac{x\dot{x} + y\dot{y}}{\sqrt{x^2 + y^2}}
+\end{equation}
+همچنین طول جغرافیایی برابر است با:
+\begin{equation}
+    \label{eq:6}
+    \lambda = \tan^{-1}\left(\dfrac{y}{x}\right)
+\end{equation}
+و تغیرات طول جغرافیایی برابر است با:
+\begin{equation}
+    \label{eq:7}
+    \dot{\lambda} = \dfrac{x\dot{y} - y\dot{x}}{x^2 + y^2}
+\end{equation}
+زاویه فراز با فرض قرار دادن محور  
+$X$
+بر روی مکان اولیه
+به صورت زیر تعریف می‌شود:
+\begin{equation}
+    \label{eq:8}
+    \theta = \arccos\left(\dfrac{\boldsymbol{\mathrm{r}}.\boldsymbol{r}_0}{r.r_0}\right) = \arccos\left(\dfrac{x_0x + y_0y}{\sqrt{(x^2 + y^2)(x_0^2 + y_0^2)}}\right)
+\end{equation}
+و تغیرات زاویه فراز برابر است با:
+\begin{equation}
+    \label{eq:9}
+    \dot{\theta} = \dfrac{x_0\dot{x} + y_0\dot{y}}{\sqrt{(x^2 + y^2)(x_0^2 + y_0^2)}} - \dfrac{x_0x\dot{x} + y_0y\dot{y}}{(x^2 + y^2)^{3/2}\sqrt{x_0^2 + y_0^2}}
+\end{equation}
+
+

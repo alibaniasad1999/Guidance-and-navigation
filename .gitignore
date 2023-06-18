@@ -1,5 +1,8 @@
+*.json
+.vscode/**
 .DS_Store
 .slprj
+**/.vscode
 .idea/
 *.slxc
 */*/*/slprj/
