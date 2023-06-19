@@ -30,11 +30,15 @@ $\mathrm{Drag}$
 \end{equation}
 
 با توجه به اینکه در این مسیر فرض شده است که موشک در ارتفاع‌های بالا حرکت می‌کند، می‌توان فرض کرد که چگالی هوا تابعی از ارتفاع است. برای محاسبه چگالی هوا از رابطه زیر استفاده می‌شود:
-\begin{equation}
-    \label{eq:5}
-    \rho = \rho_0 \exp\left(-\dfrac{h}{h_0}\right)
-\end{equation}
-
+\begin{itemize}
+    \item $h \leq 0$ متر: $\rho = 1.225 \mathrm{kg/m^3}$
+    \item $0 < h \leq 11000$ متر: $\rho = 1.225 \mathrm{kg/m^3} \left(1 - \dfrac{0.0065h}{288.15}\right)^{4.2561}$
+    \item $11000 < h \leq 25000$ متر: $\rho = 0.36391 \mathrm{kg/m^3} \exp\left(\dfrac{-0.1577(h-11000)}{216.65}\right)$
+    \item $25000 < h \leq 47000$ متر: $\rho = 0.08803 \mathrm{kg/m^3} \left(1 - \dfrac{0.0226(h-25000)}{216.65}\right)^{1.73}$
+    \item $47000 < h \leq 53000$ متر: $\rho = 0.01322 \mathrm{kg/m^3} \exp\left(\dfrac{-0.1577(h-47000)}{216.65}\right)$
+    \item $53000 < h \leq 79000$ متر: $\rho = 0.00143 \mathrm{kg/m^3} \left(1 - \dfrac{0.0065(h-53000)}{216.65}\right)^{4.2561}$
+    \item $h > 79000$ متر: $\rho = 0$
+\end{itemize}
 
 پارامترهای معادله به صورت زیر تعریف می‌شوند:
 \begin{itemize}
