@@ -14,19 +14,19 @@ $\mathrm{Drag}$
 نیروی مقاومت هوایی موشک است. در این مسیر فرض شده است که نیروی پیشران موشک به صورت زیر است:
 \begin{equation}
     \label{eq:1-1}
-    \mathrm{Thrust} = \dfrac{T}{m}\hat{\boldsymbol{\mathrm{v}}}
+    \mathrm{Thrust} = \dfrac{T}{v}\hat{\boldsymbol{\mathrm{v}}}
 \end{equation}
 
 در این معادله $T$ نیروی پیشران موشک و $m$ جرم موشک است. همچنین فرض شده است که نیروی مقاومت هوایی به صورت زیر است:
 \begin{equation}
     \label{eq:1-2}
-    \mathrm{Drag} = -\dfrac{1}{2}\rho C_D A \dot{r}\hat{\boldsymbol{\mathrm{v}}}
+    \mathrm{Drag} = -\dfrac{1}{2}\rho C_D A v\hat{\boldsymbol{\mathrm{v}}}
 \end{equation}
 
 در این معادله $\rho$ چگالی هوا، $C_D$ ضریب مقاومت هوایی و $A$ مساحت مقطع عرضی موشک است. با جایگذاری معادلات \eqref{eq:1-1} و \eqref{eq:1-2} در معادله \eqref{eq:1} داریم:
 \begin{equation}
     \label{eq:1-4}
-    \ddot{\boldsymbol{\mathrm{r}}} = \left(-\dfrac{GM}{r^3}\boldsymbol{\mathrm{r}} + \dfrac{T}{m}\hat{\boldsymbol{\mathrm{v}}} - \dfrac{1}{2}\rho C_D A \dot{r}\hat{\boldsymbol{\mathrm{v}}}\right)/(m-\dot{m})
+    \ddot{\boldsymbol{\mathrm{r}}} = \left(-\dfrac{GM}{r^3}\boldsymbol{\mathrm{r}} + \dfrac{T}{m}\hat{\boldsymbol{\mathrm{v}}} - \dfrac{1}{2}\rho C_D A v\hat{\boldsymbol{\mathrm{v}}}/m\right)
 \end{equation}
 
 با توجه به اینکه در این مسیر فرض شده است که موشک در ارتفاع‌های بالا حرکت می‌کند، می‌توان فرض کرد که چگالی هوا تابعی از ارتفاع است. برای محاسبه چگالی هوا از رابطه زیر استفاده می‌شود:
@@ -55,7 +55,7 @@ $\mathrm{Drag}$
 با جایگذاری معادله \eqref{eq:2} در معادله \eqref{eq:1} داریم:
 \begin{equation}
     \label{eq:3}
-    \ddot{x}\hat{\boldsymbol{\mathrm{i}}} + \ddot{y}\hat{\boldsymbol{\mathrm{j}}} = -\dfrac{GM}{(x^2 + y^2)^{3/2}}(x\hat{\boldsymbol{\mathrm{i}}} + y\hat{\boldsymbol{\mathrm{j}}})
+    \ddot{x}\hat{\boldsymbol{\mathrm{i}}} + \ddot{y}\hat{\boldsymbol{\mathrm{j}}} = -\dfrac{GM}{(x^2 + y^2)^{3/2}}(x\hat{\boldsymbol{\mathrm{i}}} + y\hat{\boldsymbol{\mathrm{j}}}) + \dfrac{T}{m} (\dot x\hat{\boldsymbol{\mathrm{i}}} + \dot y\hat{\boldsymbol{\mathrm{j}}}) / v -\dfrac{1}{2}\rho C_D A v (\dot x\hat{\boldsymbol{\mathrm{i}}} + \dot y\hat{\boldsymbol{\mathrm{j}}})
 \end{equation}
 بر اساس روابط بالا ارتفاع به صورت زیر بدست می‌آید.
 \begin{equation}
@@ -83,10 +83,4 @@ $\mathrm{Drag}$
     \label{eq:8}
     \gamma = \tan^{-1}\left(\dfrac{\dot{h}}{\dot{\lambda}}\right)
 \end{equation}
-با جایگذاری معادلات \eqref{eq:5} و \eqref{eq:7} در معادله \eqref{eq:8} داریم:
-\begin{equation}
-    \label{eq:9}
-    \gamma = \tan^{-1}\left(\dfrac{x\dot{y} - y\dot{x}}{x\dot{x} + y\dot{y}}\right)
-\end{equation}
-
 

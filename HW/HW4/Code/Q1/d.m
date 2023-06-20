@@ -1,12 +1,15 @@
+clc;
+clear;
 %% pso optimization %%
 time_burn_1 = 73.8;
 time_burn_2 = 60.8;
 [pso_ans, ~] = particleswarm(@distance_calculator_west, 4, ...
-    [-10, -10, -10, time_burn_1+1], [10, 10, 10, time_burn_1+1+time_burn_2+10]);
+     [0, 0, 0, time_burn_1+1], [10, 10, 10, time_burn_1+1+time_burn_2+10]);
     q1 = pso_ans(1);
     q2 = pso_ans(2);
     q3 = pso_ans(3);
     t1 = pso_ans(4);
+save('pso_ans_east', "pso_ans");
 %% results %%
 r = [0; 6378e3]; % initial position m
 v = [0; 0]; % initial velocity km/s
@@ -22,7 +25,6 @@ cost = cost + 2*pi/24/3600*t(end);
 fprintf('q1 = %f, q2 = %f, q3 = %f, t1 = %f, cost = %f\n', q1, q2, q3, t1, cost);
 
 %% plot %%
-y(:, 1) = -y(:, 1); % change direction in plot
 set(gca, 'FontSize', 16)
 plot(t, y(:, 1)...
     , 'b', 'LineWidth', 2);
