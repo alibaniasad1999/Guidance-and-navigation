@@ -96,7 +96,7 @@ end
 set(gca, 'FontSize', 16)
 plot(atan2(y(:, 2), y(:, 1)),sqrt(y(:, 1).^2 + y(:, 2).^2) - 6378e3...
     , 'b', 'LineWidth', 2);
-xlabel('Latitude', 'interpreter', 'latex', 'FontSize', 24);
+xlabel('Longitude', 'interpreter', 'latex', 'FontSize', 24);
 ylabel('Altitude', 'interpreter', 'latex', 'FontSize', 24);
 axis tight
 set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
