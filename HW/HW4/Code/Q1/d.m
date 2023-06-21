@@ -23,7 +23,7 @@ options = odeset('Events', @stop_condition, 'RelTol', 1e-8, 'AbsTol', 1e-8);
 cost = -acos(y(end, 1:2)*r/norm(y(end, 1:2))/norm(r));
 cost = cost + 2*pi/24/3600*t(end);
 fprintf('q1 = %f, q2 = %f, q3 = %f, t1 = %f, cost = %f\n', q1, q2, q3, t1, cost);
-
+y(:, 1) = -y(:, 1);
 %% plot %%
 set(gca, 'FontSize', 16)
 plot(t, y(:, 1)...
