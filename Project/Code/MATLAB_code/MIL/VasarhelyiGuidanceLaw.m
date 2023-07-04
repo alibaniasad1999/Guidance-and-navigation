@@ -1,6 +1,9 @@
 %%%%%%% Vasarhelyi Guidance Law %%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function velocity_law = VasarhelyiGuidanceLaw(position, velocity, r_agent, p_swarm)
+function velocity_law = VasarhelyiGuidanceLaw(position, velocity, dt)
+    swarm_parameter;
+    vasarhelyi_parameter;
+    r_agent = p_swarm.r_coll;
     % position: 1 x 2N vector of the positions of all the agents
     agent_number = floor(length(position)/2);
     agent_position = reshape(position, 2, agent_number);
@@ -131,7 +134,7 @@ function velocity_law = VasarhelyiGuidanceLaw(position, velocity, r_agent, p_swa
             for obs = 1:p_swarm.n_spheres
                 % Get obstacle center and radius
                 c_obs = p_swarm.spheres(1:2, obs);
-                r_obs = p_swarm.spheres(4, obs);
+                r_obs = p_swarm.spheres(3, obs);
 
                 % Compute distance agent(a)-obstacle(b)
                 dist_ab = sqrt(sum((pos(:, agent) - c_obs).^2)) - r_obs;
@@ -215,7 +218,7 @@ function velocity_law = VasarhelyiGuidanceLaw(position, velocity, r_agent, p_swa
 
     % Total number of collisions per time step
     nb_agent_collisions = nb_agent_collisions / 2; % reciprocal
-    collisions = [nb_agent_collisions nb_obs_collisions min_dist_obs];
+    % collisions = [nb_agent_collisions nb_obs_collisions min_dist_obs];
 
     % Add random effect on velocities
     % if isfield(p_swarm, 'c_r')
@@ -223,16 +226,16 @@ function velocity_law = VasarhelyiGuidanceLaw(position, velocity, r_agent, p_swa
     % end
 
     % Bound velocities and acceleration
-    % if ~isempty(p_swarm.max_v)
-    %     vel_cmd_norm = sqrt(sum((vel_command.^2), 1));
-    %     v_norm = sqrt(sum((vel.^2), 1));
-        
-    %     idx_to_bound = (vel_cmd_norm > p_swarm.max_v);
-    %     if sum(idx_to_bound) > 0
-    %         vel_command(:, idx_to_bound) = p_swarm.max_v * ...
-    %             vel_command(:, idx_to_bound) ./ repmat(vel_cmd_norm(idx_to_bound), 3, 1);
-    %     end
-    % end
+    if ~isempty(p_swarm.max_v)
+        vel_cmd_norm = sqrt(sum((vel_command.^2), 1));
+        % v_norm = sqrt(sum((vel.^2), 1));
+
+        idx_to_bound = (vel_cmd_norm > p_swarm.max_v);
+        if sum(idx_to_bound) > 0
+            vel_command(:, idx_to_bound) = p_swarm.max_v * ...
+                vel_command(:, idx_to_bound) ./ repmat(vel_cmd_norm(idx_to_bound), 2, 1);
+        end
+    end
     % if ~isempty(p_swarm.max_a)
     %     accel_cmd = (vel_command-vel)./dt;
     %     accel_cmd_norm = sqrt(sum(accel_cmd.^2, 1));
@@ -240,7 +243,7 @@ function velocity_law = VasarhelyiGuidanceLaw(position, velocity, r_agent, p_swa
     %     if sum(idx_to_bound) > 0
     %         vel_command(:, idx_to_bound) = vel(:, idx_to_bound) + ...
     %             dt*p_swarm.max_a * accel_cmd(:, idx_to_bound) ./ ...
-    %             repmat(accel_cmd_norm(idx_to_bound), 3, 1);
+    %             repmat(accel_cmd_norm(idx_to_bound), 2, 1);
     %     end
     % end
     velocity_law = reshape(vel_command, 1, 2*nb_agents);
