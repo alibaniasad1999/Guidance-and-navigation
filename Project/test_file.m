@@ -1,5 +1,5 @@
 %%%%%%%% test Vasarhelyi Guidance Law %%%%%%%%
-n = 20;
+n = 2;
 position = rand(1,n)*200-100;
 velocity = zeros(1,n);
 % In your main, run this script after the swarm initialization
@@ -177,9 +177,9 @@ p_swarm.a_fric = 4.16;
 %% Obstacles and wall parameters
 
 % Stopping point offset of walls
-p_swarm.r0_shill = 0.001;
+p_swarm.r0_shill = 0.1;
 % Velocity of virtual shill agents
-p_swarm.v_shill = 13.6;
+p_swarm.v_shill = 1.6;
 % Gain of bracking curve for walls
 p_swarm.p_shill = 0.55;
 % Acceleration of braking curve for walls
@@ -188,8 +188,8 @@ p_swarm.a_shill = 3.02;
 
 
 %% example of use of the function %%
-position_array = zeros(2,n/2,10000);
-for i = 1:10000
+position_array = zeros(2,n/2,100000);
+for i = 1:100000
     v_command = VasarhelyiGuidanceLaw(position, velocity, p_swarm.r_coll, p_swarm);
     position = position + v_command * 0.01;
     position_array(:, :, i) = reshape(position, 2, n/2);
