@@ -1,5 +1,5 @@
 %%%%%%%% test Vasarhelyi Guidance Law %%%%%%%%
-n = 9;
+n = 20;
 position = rand(1,n)*200-100;
 velocity = zeros(1,n);
 % In your main, run this script after the swarm initialization
@@ -9,21 +9,18 @@ p_swarm.is_active_migration = false;
 p_swarm.is_active_goal = false;
 p_swarm.is_active_arena = true;
 p_swarm.is_active_spheres = false;
-p_swarm.is_active_cyl = true;
+p_swarm.is_active_cyl = false;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Number of agents
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-if ~isfield(p_swarm, 'nb_agents')
-    p_swarm.nb_agents = 5;
-end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Max radius of influence - Metric distance
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-p_swarm.r = 150;
+p_swarm.r = 15;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Max number of neighbors - Topological distance
@@ -49,16 +46,15 @@ p_swarm.r_coll = 0.5;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % x,y,z positions of the walls
-p_swarm.x_arena = [-1000 1000; % x wall
-            -1000 1000; % y_wall
-            -1000 1000]; % z_wall
+p_swarm.x_arena = [-100 100; % x wall
+            -100 100]; % y_wall
 p_swarm.center_arena = sum(p_swarm.x_arena, 2) / 2;
 
 % Parameter that defines the influence radius of the arena repulsion force
 p_swarm.d_arena = 1.5;
 
 % Constant of proportionality of the arena repulsion force
-p_swarm.c_arena = 10;
+p_swarm.c_arena = .1;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Spheric obstacles parameters
@@ -161,7 +157,7 @@ end
 % Repulsion range
 p_swarm.r0_rep = p_swarm.d_ref; % radius of repulsion
 % Repulsion gain
-p_swarm.p_rep = 0.03;
+p_swarm.p_rep = 0.3;
 
 
 %% Friction
@@ -181,21 +177,22 @@ p_swarm.a_fric = 4.16;
 %% Obstacles and wall parameters
 
 % Stopping point offset of walls
-p_swarm.r0_shill = 0.3;
+p_swarm.r0_shill = 0.001;
 % Velocity of virtual shill agents
 p_swarm.v_shill = 13.6;
 % Gain of bracking curve for walls
-p_swarm.p_shill = 3.55;
+p_swarm.p_shill = 0.55;
 % Acceleration of braking curve for walls
 p_swarm.a_shill = 3.02;    
 
 
 
 %% example of use of the function %%
-position_array = zeros(3,n/3,100000);
-for i = 1:100000
+position_array = zeros(2,n/2,10000);
+for i = 1:10000
     v_command = VasarhelyiGuidanceLaw(position, velocity, p_swarm.r_coll, p_swarm);
     position = position + v_command * 0.01;
-    position_array(:, :, i) = reshape(position, 3, n/3);
+    position_array(:, :, i) = reshape(position, 2, n/2);
     velocity = v_command;
 end
+plot_ertyuiop;
