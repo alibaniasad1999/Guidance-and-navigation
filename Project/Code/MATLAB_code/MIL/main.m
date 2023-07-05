@@ -1,23 +1,18 @@
 clear;
 clc;
-%%%%%%%% test Vasarhelyi Guidance Law %%%%%%%%
-agent_number = 50;
-n = agent_number*2;
-position = rand(1,n)*200-100;
-velocity = zeros(1,n);
-
-
-dt = 0.01;
+%%%%%%%% main Vasarhelyi Guidance Law %%%%%%%%
+%% parameters %%
+% x_arena: arena limits
 x_arena = [-100 100; % x wall
            -100 100]; % y_wall
-spheres = [0 10; 0 10; 5 10]; % x y radius
-%% example of use of the function %%
-position_array = zeros(2,n/2,1000);
-for i = 1:1000
-    v_command = VasarhelyiGuidanceLaw(position, velocity,...
-        x_arena, spheres, dt);
-    position = position + v_command * dt;
-    position_array(:, :, i) = reshape(position, 2, n/2);
-    velocity = v_command;
-end
-plot_results(x_arena, spheres);
+% spheres: obstacles
+spheres = [0 10 20; 0 10 20; 5 10 20]; % x y radius
+% agent_number: number of agents
+agent_number = 500;
+% time: simulation time
+time = 10;
+% dt: time step
+dt = 0.01;
+
+position_array = simulation_function(x_arena, spheres, agent_number, time, dt);
+plot_results(agent_number, position_array, x_arena, spheres);
