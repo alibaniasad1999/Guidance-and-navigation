@@ -40,8 +40,8 @@ p_swarm.r_coll = 0.5;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % x,y,z positions of the walls
-p_swarm.x_arena = [-100 100; % x wall
-                   -100 100]; % y_wall
+% p_swarm.x_arena = [-100 100; % x wall
+%                    -100 100]; % y_wall
 p_swarm.center_arena = sum(p_swarm.x_arena, 2) / 2;
 
 % Parameter that defines the influence radius of the arena repulsion force
@@ -55,7 +55,7 @@ p_swarm.c_arena = .1;
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-p_swarm.spheres = [0 10; 0 10; 5 10];
+% p_swarm.spheres = [0 10; 0 10; 5 10];
 
 p_swarm.n_spheres = length(p_swarm.spheres(1, :));
 

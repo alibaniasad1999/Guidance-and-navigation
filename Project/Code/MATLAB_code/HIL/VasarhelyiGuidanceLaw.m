@@ -1,6 +1,9 @@
 %%%%%%% Vasarhelyi Guidance Law %%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function velocity_law = VasarhelyiGuidanceLaw(position, velocity, dt)
+function velocity_law = VasarhelyiGuidanceLaw(position, velocity,...
+    x_arena, spheres, dt)
+    x_arena = x_arena;
+    spheres = spheres;
     % Variables to be set
 is_active_migration = false;
 is_active_goal = false;
@@ -24,9 +27,9 @@ r = 15;
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-max_neig = 10;
-
+% if ~isfield(p_swarm, 'max_neig')
+    max_neig = 10;
+% end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Radius of collision -
@@ -43,15 +46,12 @@ r_coll = 0.5;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % x,y,z positions of the walls
-x_arena = [-100 100; % x wall
-                   -100 100]; % y_wall
-center_arena = zeros(2, 1);
+% x_arena = [-100 100; % x wall
+%                    -100 100]; % y_wall
 center_arena = sum(x_arena, 2) / 2;
 
 % Parameter that defines the influence radius of the arena repulsion force
-d_arena = 0;
 d_arena = 1.5;
-
 
 % Constant of proportionality of the arena repulsion force
 c_arena = .1;
@@ -61,7 +61,7 @@ c_arena = .1;
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-spheres = [0 10; 0 10; 5 10];
+% spheres = [0 10; 0 10; 5 10];
 
 n_spheres = length(spheres(1, :));
 
@@ -74,14 +74,13 @@ n_spheres = length(spheres(1, :));
 
     d_ref = 25;
 
-
 % Velocity direction
 u_ref = [1 0 0]';
 
 % Speed
-
+% if ~isfield(p_swarm, 'v_ref')
     v_ref = 6;
-
+% end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Velocity and acceleration bounds for the agents
@@ -127,7 +126,7 @@ v_shill = 1.6;
 % Gain of bracking curve for walls
 p_shill = 0.55;
 % Acceleration of braking curve for walls
-a_shill = 3.02;  
+a_shill = 3.02;    
     r_agent = r_coll;
     % position: 1 x 2N vector of the positions of all the agents
     agent_number = floor(length(position)/2);
@@ -170,10 +169,19 @@ a_shill = 3.02;
         nb_neig = nb_agents - 1;
 
         % Constraint on neighborhood given by the euclidean distance
-            neig_list = neig_list(dist(neig_list) < r);
-            nb_neig = length(neig_list);
+%         if isfield(p_swarm, 'r')
+%             neig_list = neig_list(dist(neig_list) < r);
+%             nb_neig = length(neig_list);
+%         end
 
-
+        % Constraint on neighborhood given by the topological distance
+%         if isfield(p_swarm, 'max_neig')
+%             if nb_neig > max_neig
+%                 [~, idx] = sort(dist(neig_list));
+%                 neig_list = neig_list(idx(1:max_neig));
+%                 nb_neig = max_neig;
+%             end
+%         end
 
         % Adjacency matrix (asymmetric in case of limited fov)
         M(agent, neig_list) = 1;
@@ -187,24 +195,24 @@ a_shill = 3.02;
             % Compute vel and pos unit vector between two agents
             p_rel_u = -p_rel ./ dist;
             v_rel_u = -v_rel ./ v_rel_norm;
-            temp = neig_list';
-            for agent2 = temp
+
+            for agent2 = 1:length(neig_list)
                 
                 % Repulsion and attraction
-                if dist(agent2) < r0_rep  % repulsion
+                if dist(neig_list(agent2)) < r0_rep  % repulsion
                     vel_rep(:, agent) = vel_rep(:, agent) + ...
-                        p_rep * (r0_rep - dist(agent2)) * p_rel_u(:, agent2);
+                        p_rep * (r0_rep - dist(neig_list(agent2))) * p_rel_u(:, neig_list(agent2));
                 % else  % attraction
                 %     vel_rep(:, agent) = vel_rep(:, agent) + ...
-                %         p_rep * (dist(agent2) - r0_rep) *- p_rel_u(:, agent2);
+                %         p_rep * (dist(neig_list(agent2)) - r0_rep) *- p_rel_u(:, neig_list(agent2));
                 end
 
                 % Velocity alignement
-                v_fric_max = get_v_max(v_fric, dist(agent2) - r0_fric, a_fric, p_fric);
+                v_fric_max = get_v_max(v_fric, dist(neig_list(agent2)) - r0_fric, a_fric, p_fric);
 
-                if v_rel_norm(agent2) > v_fric_max
+                if v_rel_norm(neig_list(agent2)) > v_fric_max
                     vel_fric(:, agent) = vel_fric(:, agent) + ...
-                        C_fric * (v_rel_norm(agent2) - v_fric_max) * v_rel_u(:, agent2);
+                        C_fric * (v_rel_norm(neig_list(agent2)) - v_fric_max) * v_rel_u(:, neig_list(agent2));
                 end
             end
         end
