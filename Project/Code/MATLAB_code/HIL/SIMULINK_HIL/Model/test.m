@@ -1,4 +1,4 @@
-data = randn(1, 50);
+data = randn(1, 100);
 y = [85 85 data calculateChecksum(data)];
 calculateChecksum(data)
 
