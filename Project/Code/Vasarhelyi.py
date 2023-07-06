@@ -86,6 +86,7 @@ class vasarhelyi(drones):
         relative_position = self.relative_position()
         relative_velocity = self.relative_velocity()
         unit_velocity_vector = self.unit_velocity_vector()
+        # D ---> ideal breaking curve
         r = r - self.r0_fric
         a = self.a0_fric
         p = self.p_fric
@@ -107,9 +108,20 @@ class vasarhelyi(drones):
         return alignment_velocity
     
     # Walls repulsion virtual shill agent
-    def walls_repulsion_velocity(self):
-        walls_repulsion_velocity = np.zeros((self.size, 2))
-        # D function
+    # def walls_repulsion_velocity(self):
+    #     # Add arena repulsion effect
+    #     # On each axis we have the two repulsions
+    #     for axis in range(2):
+    #         # On each axis there is two forces (each side of the arena)
+    #         for side in range(2):
+    #             # If the drone is on the right side of the arena
+    #             if self.position[:, axis].max() > self.arena_size[axis]:
+    #                 # Calculate the repulsion force
+    #                 self.repulsion_attraction_velocity[:, axis] -= self.p_rep * (self.position[:, axis] - self.arena_size[axis])
+    #             # If the drone is on the left side of the arena
+    #             elif self.position[:, axis].min() < 0:
+    #                 # Calculate the repulsion force
+    #                 self.repulsion_attraction_velocity[:, axis] -= self.p_rep * (self.position[:, axis])
         
             
 
