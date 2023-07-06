@@ -39,7 +39,7 @@ for i=1:length(position_array)
         end
         axis tight
         axis equal
-        pause(step_time)
+        pause(0.05)
     end
 end
 end

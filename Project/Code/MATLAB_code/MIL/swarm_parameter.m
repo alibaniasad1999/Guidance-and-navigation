@@ -1,9 +1,10 @@
 % Variables to be set
-p_swarm.is_active_migration = false;
+p_swarm.is_active_migration = true;
 p_swarm.is_active_goal = false;
 p_swarm.is_active_arena = true;
 p_swarm.is_active_spheres = true;
 p_swarm.is_active_cyl = false;
+p_swarm.circular = true;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Number of agents
@@ -65,7 +66,7 @@ p_swarm.n_spheres = length(p_swarm.spheres(1, :));
 
 % Inter-agent distance
 if ~isfield(p_swarm, 'd_ref')
-    p_swarm.d_ref = 25;
+    p_swarm.d_ref = 20;
 end
 
 % Velocity direction
@@ -73,7 +74,7 @@ p_swarm.u_ref = [1 0 0]';
 
 % Speed
 if ~isfield(p_swarm, 'v_ref')
-    p_swarm.v_ref = 6;
+    p_swarm.v_ref = 16;
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

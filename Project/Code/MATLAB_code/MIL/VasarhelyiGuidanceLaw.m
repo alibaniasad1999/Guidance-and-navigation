@@ -82,9 +82,9 @@ function velocity_law = VasarhelyiGuidanceLaw(position, velocity,...
                 if dist(agent2) < p_swarm.r0_rep  % repulsion
                     vel_rep(:, agent) = vel_rep(:, agent) + ...
                         p_swarm.p_rep * (p_swarm.r0_rep - dist(agent2)) * p_rel_u(:, agent2);
-                % else  % attraction
-                %     vel_rep(:, agent) = vel_rep(:, agent) + ...
-                %         p_swarm.p_rep * (dist(agent2) - p_swarm.r0_rep) *- p_rel_u(:, agent2);
+                else  % attraction
+                    vel_rep(:, agent) = vel_rep(:, agent) + ...
+                        p_swarm.p_rep * (dist(agent2) - p_swarm.r0_rep) *- p_rel_u(:, agent2);
                 end
 
                 % Velocity alignement
@@ -167,7 +167,7 @@ function velocity_law = VasarhelyiGuidanceLaw(position, velocity,...
         % Add self propulsion OR migration term
         v_norm = sqrt(sum((vel(:, agent).^2), 1));
 
-        if p_swarm.is_active_migration == true% migration
+        if p_swarm.is_active_migration == false% migration
             vel_command(:, agent) = vel_command(:, agent) + p_swarm.v_ref * p_swarm.u_ref;
         elseif p_swarm.is_active_goal == true
             x_goal_rel = p_swarm.x_goal - pos(:, agent);
@@ -181,6 +181,8 @@ function velocity_law = VasarhelyiGuidanceLaw(position, velocity,...
         end
     end
     
+    %% random effect
+    vel_command = vel_command + 1 * randn(2, nb_agents);
     
     %% bound velocities and accelerations
 
@@ -205,6 +207,15 @@ function velocity_law = VasarhelyiGuidanceLaw(position, velocity,...
                 repmat(accel_cmd_norm(idx_to_bound), 2, 1);
         end
     end
+
+    % add velocity to each agent to move circularly
+    if p_swarm.circular
+        p_swarm.v_circular = 0.5;
+        angle = atan2(pos(2,:), pos(1,:));
+        vel_command = vel_command + repmat(p_swarm.v_circular, 2, 1) .* [-sin(angle); cos(angle)];
+    end
+
+    % vel_command = vel_command + 
     velocity_law = reshape(vel_command, 1, 2*nb_agents);
 
 end
