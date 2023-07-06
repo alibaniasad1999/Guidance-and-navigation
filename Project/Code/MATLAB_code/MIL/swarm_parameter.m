@@ -13,8 +13,7 @@ p_swarm.is_active_cyl = false;
 % Max radius of influence - Metric distance
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-p_swarm.r = 15;
+% add to input %
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Max number of neighbors - Topological distance

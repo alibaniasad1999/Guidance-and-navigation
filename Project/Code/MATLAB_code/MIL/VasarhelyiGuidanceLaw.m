@@ -1,9 +1,10 @@
 %%%%%%% Vasarhelyi Guidance Law %%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function velocity_law = VasarhelyiGuidanceLaw(position, velocity,...
-    x_arena, spheres, dt)
+    x_arena, spheres, radius, dt)
     p_swarm.x_arena = x_arena;
     p_swarm.spheres = spheres;
+    p_swarm.r = radius;
     swarm_parameter;
     vasarhelyi_parameter;
     r_agent = p_swarm.r_coll;
