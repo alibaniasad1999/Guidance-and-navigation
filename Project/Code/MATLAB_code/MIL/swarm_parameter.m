@@ -4,7 +4,7 @@ p_swarm.is_active_goal = false;
 p_swarm.is_active_arena = true;
 p_swarm.is_active_spheres = true;
 p_swarm.is_active_cyl = false;
-p_swarm.circular = true;
+p_swarm.circular = false;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Number of agents

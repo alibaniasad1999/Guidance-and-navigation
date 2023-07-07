@@ -1,7 +1,9 @@
-function plot_results(agent_number, position_array, x_arena, spheres)
+function plot_results_timeline(agent_number, position_array, velocity_array, x_arena, spheres)
 for i=1:agent_number
-    plot(reshape(position_array(1, i, :), 1, length(position_array)),...
-         reshape(position_array(2, i, :), 1, length(position_array)));
+    x = reshape(position_array(1, i, :), 1, length(position_array));
+    y = reshape(position_array(2, i, :), 1, length(position_array));
+    v = reshape(velocity_array(:, i, :), 2, length(position_array));
+    scatter(x,y, 2, sum(v))
     hold on
 end
 % plot x arena square
