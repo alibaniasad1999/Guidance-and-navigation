@@ -4,7 +4,7 @@ fig_num = 0;
 for i=1:length(position_array)
 
 
-    if mod(i, floor(step_time/dt)) == 0
+    if mod(i, floor(step_time/dt)) == 0 || i == 1
         hold off;
         x = position_array(1, :, i);
         y = position_array(2, :, i);
@@ -45,9 +45,14 @@ for i=1:length(position_array)
     xlabel('X(m)', 'interpreter', 'latex', 'FontSize', 24);
     ylabel('Y(m)', 'interpreter', 'latex', 'FontSize', 24);
     set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
+        if i == 1
+            title(append('Time: ', string(0)), 'Interpreter','latex')
+        else
+            title(append('Time: ', string(i*dt)), 'Interpreter','latex')
+        end
 
 
-    print(append('../../../../Figure/test1/', string(fig_num)), '-dpng');
+    print(append('../../../../Figure/test2/', string(fig_num)), '-dpng');
     fig_num = fig_num + 1;
     end
 end

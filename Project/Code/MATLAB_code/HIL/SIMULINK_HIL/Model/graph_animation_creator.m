@@ -6,11 +6,8 @@ for i=1:length(position_array)
     if i * dt > 25
         break
     end
-
-
     if mod(i, floor(step_time/dt)) == 0 || i == 1
         hold off;
-        f = figure('Visible','off');
         x = position_array(1, :, i);
         y = position_array(2, :, i);
         c = linspace(1,10,agent_number);
@@ -57,7 +54,7 @@ for i=1:length(position_array)
         else
             title(append('Time: ', string(i*dt)), 'Interpreter','latex')
         end
-        print(f, append('../../../../../Figure/HIL/', string(fig_num)), '-dpng');
+        print(append('../../../../../Figure/HIL/', string(fig_num)), '-dpng');
         fig_num = fig_num + 1;
         
     end

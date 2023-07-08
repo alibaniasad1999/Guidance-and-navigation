@@ -6,13 +6,13 @@ clc;
 x_arena = [-100 100; % x wall
            -100 100]; % y_wall
 % spheres: obstacles
-spheres = [0 10 20; 0 10 20; 5 10 2]; % x y radius
+spheres = [0 10 70 10 -60 -60; 0 70 -10 -70 -60 60; 10 3 3 3 5 5]; % x y radius
 % agent_number: number of agents
 agent_number = 100;
 % Max radius of influence - Metric distance
 radius = 25;
 % time: simulation time
-time = 100;
+time = 10;
 % dt: time step
 dt = 0.1;
 

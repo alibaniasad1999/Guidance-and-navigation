@@ -1,7 +1,7 @@
-clc;
-clear;
+% clc;
+% clear;
 %% plot results %%
-load('position_data.mat');
+% load('position_data.mat');
 load('init.mat');
 step_time = 0.1;
 dt = 0.01;
