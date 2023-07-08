@@ -3,6 +3,7 @@
 .DS_Store
 .slprj
 **/.vscode
+Project/Figure/**/*.png
 .idea/
 *.slxc
 */*/*/slprj/

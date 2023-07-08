@@ -8,13 +8,13 @@ x_arena = [-100 100; % x wall
 % spheres: obstacles
 spheres = [0 10 20; 0 10 20; 5 10 2]; % x y radius
 % agent_number: number of agents
-agent_number = 100;
+agent_number = 10;
 % Max radius of influence - Metric distance
 radius = 25;
 % time: simulation time
-time = 1000;
+time = 10;
 % dt: time step
-dt = 0.1;
+dt = 0.01;
 
 [position_array, velocity_array] = simulation_function(x_arena...
     , spheres, agent_number,...
