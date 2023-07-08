@@ -12,8 +12,8 @@ agent_number = 100;
 % Max radius of influence - Metric distance
 radius = 25;
 % time: simulation time
-time = 100;
-% dt: time step
+time = 10;
+% dt: time step 
 dt = 0.1;
 
 [position_array, velocity_array] = simulation_function(x_arena...
@@ -22,13 +22,13 @@ dt = 0.1;
 %%
 plot_results(agent_number, position_array, x_arena, spheres);
 axis([-100 100, -100 100])
-print(append('../../../../Figure/MIL/', 'all_in_one'), '-deps');
+print(append('../../../../Figure/MIL/', 'all_in_one'), '-depsc');
 %%
 step_time = .1;
 graph_animation_creator(agent_number, position_array, x_arena, spheres,...
     step_time, dt, radius);
 %%
-plot_results_timeline(agent_number, position_array, velocity_array,...
+plot_results_history(agent_number, position_array, velocity_array,...
     x_arena, spheres);
 axis([-100 100, -100 100])
 %%

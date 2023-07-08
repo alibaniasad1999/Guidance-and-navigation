@@ -54,7 +54,7 @@ for i=1:length(position_array)
         end
 
 
-    print(append('../../../../Figure/test2/', string(fig_num)), '-dpng');
+    print(append('../../../../Figure/MIL/graph/', string(fig_num)), '-dpng');
     fig_num = fig_num + 1;
     end
 end

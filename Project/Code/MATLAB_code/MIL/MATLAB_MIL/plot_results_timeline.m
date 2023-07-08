@@ -1,6 +1,6 @@
 function plot_results_timeline(agent_number, position_array, velocity_array, x_arena, spheres)
 dt = 0.1;
-for i=1:length(position_array)
+for i=1:150
     x = reshape(position_array(1, :, i), 1, agent_number);
     y = reshape(position_array(2, :, i), 1, agent_number);
     v = reshape(velocity_array(:, :, i), 2, agent_number);
@@ -15,10 +15,14 @@ for i=1:length(position_array)
         else
             title(append('Time: ', string(i*dt)), 'Interpreter','latex')
         end
-        print(append('../../../../Figure/MIL/time_line/', string(i)), '-dpng');
+        
         axis tight
-axis equal
+        axis equal
 % plot x arena square
+for j=1:length(spheres(1, :))
+    % plot circle with x, y, and raduis
+    plot_circle(spheres(1, j), spheres(2, j), spheres(3, j));
+end
 plot([x_arena(1), x_arena(1)], [x_arena(2), x_arena(4)], '--k', 'linewidth', 2);
 plot([x_arena(1), x_arena(3)], [x_arena(2), x_arena(2)], '--k', 'linewidth', 2);
 plot([x_arena(3), x_arena(3)], [x_arena(2), x_arena(4)], '--k', 'linewidth', 2);
@@ -28,6 +32,8 @@ for j=1:length(spheres(1, :))
     % plot circle with x, y, and raduis
     plot_circle(spheres(1, j), spheres(2, j), spheres(3, j));
 end
+axis([-100 100, -100 100])
+print(append('../../../../Figure/MIL/time/', string(i)), '-dpng');
 end
 % plot x arena square
 plot([x_arena(1), x_arena(1)], [x_arena(2), x_arena(4)], '--k', 'linewidth', 2);
