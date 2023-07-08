@@ -17,7 +17,7 @@ def create_gif(image_list, gif_name, duration=0.01):
         for y in range(height):
             for x in range(width):
                 # delete bright pixels with lower threshhold
-                if pixdata[x, y][0] > 150 and pixdata[x, y][1] > 150 and pixdata[x, y][2] > 150:
+                if pixdata[x, y][0] > 100 and pixdata[x, y][1] > 100 and pixdata[x, y][2] > 100:
                     pixdata[x, y] = (255, 255, 255, 0)
         frames.append(img)
 
@@ -36,7 +36,8 @@ def create_gif(image_list, gif_name, duration=0.01):
 
 def main():
     # All PNG images in the specified directory
-    dir = 'Figure/HIL/'
+    couter = 0
+    dir = 'Figure/MIL/time_line/'
     image_list = []
     image_name_list = os.listdir(dir)
     # Sort by name number
@@ -44,7 +45,7 @@ def main():
     for filename in image_name_list:
         if filename.endswith('.png'):
             image_list.append(os.path.join(dir, filename))
-    gif_name = os.path.join(dir, 'created_gif.gif')
+    gif_name = os.path.join(dir, 'created_dayan.gif')
     duration = 100  # Adjust the duration (in milliseconds) as needed
     create_gif(image_list, gif_name, duration)
 

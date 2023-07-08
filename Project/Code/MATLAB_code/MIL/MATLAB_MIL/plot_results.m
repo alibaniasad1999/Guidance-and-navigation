@@ -16,6 +16,11 @@ for j=1:length(spheres(1, :))
 end
 axis tight
 axis equal
+        set(gca, 'FontSize', 16)
+ 
+    xlabel('X(m)', 'interpreter', 'latex', 'FontSize', 24);
+    ylabel('Y(m)', 'interpreter', 'latex', 'FontSize', 24);
+    set(gca, 'FontSize', 16, 'FontName', 'Times New Roman');
 end
 
 function plot_circle(x, y, r)

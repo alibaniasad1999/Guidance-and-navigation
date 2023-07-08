@@ -2,7 +2,9 @@ function graph_animation_creator_gif(agent_number, position_array, x_arena, sphe
     step_time, dt, r)
 fig_num = 0;
 for i=1:length(position_array)
-
+    if i*0.1>30
+        break
+    end
 
     if mod(i, floor(step_time/dt)) == 0 || i == 1
         hold off;
