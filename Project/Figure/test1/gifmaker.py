@@ -36,7 +36,7 @@ def create_gif(image_list, gif_name, duration=0.01):
 
 def main():
     # All PNG images in the specified directory
-    dir = 'Figure/test1/'
+    dir = 'Figure/HIL/'
     image_list = []
     image_name_list = os.listdir(dir)
     # Sort by name number
