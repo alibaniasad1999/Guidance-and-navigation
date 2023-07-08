@@ -5,7 +5,7 @@
     ;%***********************
     
         nTotData      = 0; %add to this count as we go
-        nTotSects     = 4;
+        nTotSects     = 3;
         sectIdxOffset = 0;
 
         ;%
@@ -66,30 +66,19 @@
             paramMap.sections(2) = section;
             clear section
 
-            section.nData     = 1;
-            section.data(1)  = dumData; %prealloc
-
-                    ;% model_old_P.Constant1_Value
-                    section.data(1).logicalSrcIdx = 8;
-                    section.data(1).dtTransOffset = 0;
-
-            nTotData = nTotData + section.nData;
-            paramMap.sections(3) = section;
-            clear section
-
             section.nData     = 2;
             section.data(2)  = dumData; %prealloc
 
                     ;% model_old_P.Constant4_Value
-                    section.data(1).logicalSrcIdx = 9;
+                    section.data(1).logicalSrcIdx = 8;
                     section.data(1).dtTransOffset = 0;
 
                     ;% model_old_P.Constant5_Value
-                    section.data(2).logicalSrcIdx = 10;
+                    section.data(2).logicalSrcIdx = 9;
                     section.data(2).dtTransOffset = 1;
 
             nTotData = nTotData + section.nData;
-            paramMap.sections(4) = section;
+            paramMap.sections(3) = section;
             clear section
 
 
@@ -110,7 +99,7 @@
     ;%**************************
     
         nTotData      = 0; %add to this count as we go
-        nTotSects     = 3;
+        nTotSects     = 4;
         sectIdxOffset = 0;
 
         ;%
@@ -136,7 +125,7 @@
             section.nData     = 1;
             section.data(1)  = dumData; %prealloc
 
-                    ;% model_old_B.SumofElements
+                    ;% model_old_B.position_out
                     section.data(1).logicalSrcIdx = 0;
                     section.data(1).dtTransOffset = 0;
 
@@ -144,38 +133,49 @@
             sigMap.sections(1) = section;
             clear section
 
-            section.nData     = 2;
-            section.data(2)  = dumData; %prealloc
+            section.nData     = 1;
+            section.data(1)  = dumData; %prealloc
 
-                    ;% model_old_B.DataTypeConversion1
-                    section.data(1).logicalSrcIdx = 1;
+                    ;% model_old_B.SumofElements
+                    section.data(1).logicalSrcIdx = 2;
                     section.data(1).dtTransOffset = 0;
-
-                    ;% model_old_B.ByteUnpack
-                    section.data(2).logicalSrcIdx = 2;
-                    section.data(2).dtTransOffset = 6;
 
             nTotData = nTotData + section.nData;
             sigMap.sections(2) = section;
             clear section
 
-            section.nData     = 3;
-            section.data(3)  = dumData; %prealloc
+            section.nData     = 2;
+            section.data(2)  = dumData; %prealloc
 
-                    ;% model_old_B.BytePack
+                    ;% model_old_B.ByteUnpack
                     section.data(1).logicalSrcIdx = 3;
                     section.data(1).dtTransOffset = 0;
 
-                    ;% model_old_B.BytePack1
+                    ;% model_old_B.DataTypeConversion1
                     section.data(2).logicalSrcIdx = 4;
-                    section.data(2).dtTransOffset = 24;
-
-                    ;% model_old_B.PacketInput
-                    section.data(3).logicalSrcIdx = 5;
-                    section.data(3).dtTransOffset = 28;
+                    section.data(2).dtTransOffset = 2;
 
             nTotData = nTotData + section.nData;
             sigMap.sections(3) = section;
+            clear section
+
+            section.nData     = 3;
+            section.data(3)  = dumData; %prealloc
+
+                    ;% model_old_B.PacketInput
+                    section.data(1).logicalSrcIdx = 5;
+                    section.data(1).dtTransOffset = 0;
+
+                    ;% model_old_B.BytePack
+                    section.data(2).logicalSrcIdx = 6;
+                    section.data(2).dtTransOffset = 8;
+
+                    ;% model_old_B.BytePack1
+                    section.data(3).logicalSrcIdx = 7;
+                    section.data(3).dtTransOffset = 32;
+
+            nTotData = nTotData + section.nData;
+            sigMap.sections(4) = section;
             clear section
 
 
@@ -196,8 +196,8 @@
     ;%*******************
     
         nTotData      = 0; %add to this count as we go
-        nTotSects     = 2;
-        sectIdxOffset = 3;
+        nTotSects     = 4;
+        sectIdxOffset = 4;
 
         ;%
         ;% Define dummy sections & preallocate arrays
@@ -219,30 +219,64 @@
         ;%
         ;% Auto data (model_old_DW)
         ;%
-            section.nData     = 1;
-            section.data(1)  = dumData; %prealloc
+            section.nData     = 3;
+            section.data(3)  = dumData; %prealloc
 
                     ;% model_old_DW.iteration
                     section.data(1).logicalSrcIdx = 0;
                     section.data(1).dtTransOffset = 0;
 
+                    ;% model_old_DW.velocity
+                    section.data(2).logicalSrcIdx = 1;
+                    section.data(2).dtTransOffset = 1;
+
+                    ;% model_old_DW.position
+                    section.data(3).logicalSrcIdx = 2;
+                    section.data(3).dtTransOffset = 41;
+
             nTotData = nTotData + section.nData;
             dworkMap.sections(1) = section;
             clear section
 
-            section.nData     = 2;
-            section.data(2)  = dumData; %prealloc
+            section.nData     = 3;
+            section.data(3)  = dumData; %prealloc
 
                     ;% model_old_DW.PacketOutput_PWORK
-                    section.data(1).logicalSrcIdx = 1;
+                    section.data(1).logicalSrcIdx = 3;
                     section.data(1).dtTransOffset = 0;
 
                     ;% model_old_DW.PacketInput_PWORK
-                    section.data(2).logicalSrcIdx = 2;
+                    section.data(2).logicalSrcIdx = 4;
                     section.data(2).dtTransOffset = 2;
+
+                    ;% model_old_DW.ToWorkspace2_PWORK.LoggedData
+                    section.data(3).logicalSrcIdx = 5;
+                    section.data(3).dtTransOffset = 3;
 
             nTotData = nTotData + section.nData;
             dworkMap.sections(2) = section;
+            clear section
+
+            section.nData     = 1;
+            section.data(1)  = dumData; %prealloc
+
+                    ;% model_old_DW.state
+                    section.data(1).logicalSrcIdx = 6;
+                    section.data(1).dtTransOffset = 0;
+
+            nTotData = nTotData + section.nData;
+            dworkMap.sections(3) = section;
+            clear section
+
+            section.nData     = 1;
+            section.data(1)  = dumData; %prealloc
+
+                    ;% model_old_DW.velocity_not_empty
+                    section.data(1).logicalSrcIdx = 7;
+                    section.data(1).dtTransOffset = 0;
+
+            nTotData = nTotData + section.nData;
+            dworkMap.sections(4) = section;
             clear section
 
 
@@ -271,8 +305,8 @@
     ;%
 
 
-    targMap.checksum0 = 3092865588;
-    targMap.checksum1 = 622340237;
-    targMap.checksum2 = 654314713;
-    targMap.checksum3 = 7298682;
+    targMap.checksum0 = 1501872681;
+    targMap.checksum1 = 1875937137;
+    targMap.checksum2 = 2430169201;
+    targMap.checksum3 = 3002409050;
 

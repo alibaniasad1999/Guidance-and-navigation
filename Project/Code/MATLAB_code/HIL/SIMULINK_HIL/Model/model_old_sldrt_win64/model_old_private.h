@@ -3,9 +3,9 @@
  *
  * Code generation for model "model_old".
  *
- * Model version              : 1.2
+ * Model version              : 1.4
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Sat Jul  8 03:13:49 2023
+ * C source code generated on : Sat Jul  8 05:17:11 2023
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

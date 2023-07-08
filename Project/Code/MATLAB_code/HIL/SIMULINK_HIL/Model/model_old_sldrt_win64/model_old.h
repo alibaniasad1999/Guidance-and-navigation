@@ -3,9 +3,9 @@
  *
  * Code generation for model "model_old".
  *
- * Model version              : 1.2
+ * Model version              : 1.4
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Sat Jul  8 03:13:49 2023
+ * C source code generated on : Sat Jul  8 05:17:11 2023
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -845,19 +845,28 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  uint32_T SumofElements;              /* '<Root>/Sum of Elements' */
-  real32_T DataTypeConversion1[6];     /* '<Root>/Data Type Conversion1' */
-  real32_T ByteUnpack;                 /* '<Root>/Byte Unpack' */
-  uint8_T BytePack[24];                /* '<Root>/Byte Pack' */
-  uint8_T BytePack1[4];                /* '<Root>/Byte Pack1' */
-  uint8_T PacketInput[4];              /* '<Root>/Packet Input' */
+  real_T position_out[40];             /* '<Root>/MATLAB Function1' */
+  uint32_T SumofElements;              /* '<S2>/Sum of Elements' */
+  real32_T ByteUnpack[2];              /* '<Root>/Byte Unpack' */
+  real32_T DataTypeConversion1[6];     /* '<S2>/Data Type Conversion1' */
+  uint8_T PacketInput[8];              /* '<Root>/Packet Input' */
+  uint8_T BytePack[24];                /* '<S2>/Byte Pack' */
+  uint8_T BytePack1[4];                /* '<S2>/Byte Pack1' */
 } B_model_old_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T iteration;                    /* '<Root>/MATLAB Function' */
-  void *PacketOutput_PWORK[2];         /* '<Root>/Packet Output' */
+  real_T iteration;                    /* '<S2>/MATLAB Function' */
+  real_T velocity[40];                 /* '<Root>/MATLAB Function1' */
+  real_T position[40];                 /* '<Root>/MATLAB Function1' */
+  void *PacketOutput_PWORK[2];         /* '<S2>/Packet Output' */
   void *PacketInput_PWORK;             /* '<Root>/Packet Input' */
+  struct {
+    void *LoggedData;
+  } ToWorkspace2_PWORK;                /* '<Root>/To Workspace2' */
+
+  uint32_T state[625];                 /* '<Root>/MATLAB Function1' */
+  boolean_T velocity_not_empty;        /* '<Root>/MATLAB Function1' */
 } DW_model_old_T;
 
 /* Backward compatible GRT Identifiers */
@@ -872,7 +881,7 @@ typedef struct {
 struct P_model_old_T_ {
   real_T PacketOutput_MaxMissedTicks;
                                   /* Mask Parameter: PacketOutput_MaxMissedTicks
-                                   * Referenced by: '<Root>/Packet Output'
+                                   * Referenced by: '<S2>/Packet Output'
                                    */
   real_T PacketInput_MaxMissedTicks;
                                    /* Mask Parameter: PacketInput_MaxMissedTicks
@@ -880,26 +889,23 @@ struct P_model_old_T_ {
                                     */
   real_T PacketOutput_YieldWhenWaiting;
                                 /* Mask Parameter: PacketOutput_YieldWhenWaiting
-                                 * Referenced by: '<Root>/Packet Output'
+                                 * Referenced by: '<S2>/Packet Output'
                                  */
   real_T PacketInput_YieldWhenWaiting;
                                  /* Mask Parameter: PacketInput_YieldWhenWaiting
                                   * Referenced by: '<Root>/Packet Input'
                                   */
   int32_T PacketOutput_PacketID;       /* Mask Parameter: PacketOutput_PacketID
-                                        * Referenced by: '<Root>/Packet Output'
+                                        * Referenced by: '<S2>/Packet Output'
                                         */
   int32_T PacketInput_PacketID;        /* Mask Parameter: PacketInput_PacketID
                                         * Referenced by: '<Root>/Packet Input'
                                         */
-  real_T Constant1_Value[1000];        /* Expression: 1:1000
-                                        * Referenced by: '<Root>/Constant1'
-                                        */
   uint8_T Constant4_Value;             /* Computed Parameter: Constant4_Value
-                                        * Referenced by: '<Root>/Constant4'
+                                        * Referenced by: '<S2>/Constant4'
                                         */
   uint8_T Constant5_Value;             /* Computed Parameter: Constant5_Value
-                                        * Referenced by: '<Root>/Constant5'
+                                        * Referenced by: '<S2>/Constant5'
                                         */
 };
 
@@ -1045,6 +1051,8 @@ extern RT_MODEL_model_old_T *const model_old_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'model_old'
- * '<S1>'   : 'model_old/MATLAB Function'
+ * '<S1>'   : 'model_old/MATLAB Function1'
+ * '<S2>'   : 'model_old/Subsystem'
+ * '<S3>'   : 'model_old/Subsystem/MATLAB Function'
  */
 #endif                                 /* RTW_HEADER_model_old_h_ */

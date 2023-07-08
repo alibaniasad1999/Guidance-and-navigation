@@ -1,10 +1,10 @@
-clear;
-clc;
+% clear;
+% clc;
 %%%%%%%% main Vasarhelyi Guidance Law %%%%%%%%
 %% parameters %%
 % x_arena: arena limits
-x_arena = [-1000 1000; % x wall
-           -1000 1000]; % y_wall
+x_arena = [-100 100; % x wall
+           -100 100]; % y_wall
 % spheres: obstacles
 spheres = [0 10 20; 0 10 20; 5 10 2]; % x y radius
 % agent_number: number of agents

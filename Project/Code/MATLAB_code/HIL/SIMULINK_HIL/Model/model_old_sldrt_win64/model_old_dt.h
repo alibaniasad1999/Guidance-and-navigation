@@ -3,9 +3,9 @@
  *
  * Code generation for model "model_old".
  *
- * Model version              : 1.2
+ * Model version              : 1.4
  * Simulink Coder version : 9.7 (R2022a) 13-Nov-2021
- * C source code generated on : Sat Jul  8 03:13:49 2023
+ * C source code generated on : Sat Jul  8 05:17:11 2023
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -70,21 +70,27 @@ static const char_T * rtDataTypeNames[] = {
 
 /* data type transitions for block I/O structure */
 static DataTypeTransition rtBTransitions[] = {
+  { (char_T *)(&model_old_B.position_out[0]), 0, 0, 40 },
+
   { (char_T *)(&model_old_B.SumofElements), 7, 0, 1 },
 
-  { (char_T *)(&model_old_B.DataTypeConversion1[0]), 1, 0, 7 },
+  { (char_T *)(&model_old_B.ByteUnpack[0]), 1, 0, 8 },
 
-  { (char_T *)(&model_old_B.BytePack[0]), 3, 0, 32 }
+  { (char_T *)(&model_old_B.PacketInput[0]), 3, 0, 36 }
   ,
 
-  { (char_T *)(&model_old_DW.iteration), 0, 0, 1 },
+  { (char_T *)(&model_old_DW.iteration), 0, 0, 81 },
 
-  { (char_T *)(&model_old_DW.PacketOutput_PWORK[0]), 11, 0, 3 }
+  { (char_T *)(&model_old_DW.PacketOutput_PWORK[0]), 11, 0, 4 },
+
+  { (char_T *)(&model_old_DW.state[0]), 7, 0, 625 },
+
+  { (char_T *)(&model_old_DW.velocity_not_empty), 8, 0, 1 }
 };
 
 /* data type transition table for block I/O structure */
 static DataTypeTransitionTable rtBTransTable = {
-  5U,
+  8U,
   rtBTransitions
 };
 
@@ -94,14 +100,12 @@ static DataTypeTransition rtPTransitions[] = {
 
   { (char_T *)(&model_old_P.PacketOutput_PacketID), 6, 0, 2 },
 
-  { (char_T *)(&model_old_P.Constant1_Value[0]), 0, 0, 1000 },
-
   { (char_T *)(&model_old_P.Constant4_Value), 3, 0, 2 }
 };
 
 /* data type transition table for Parameters structure */
 static DataTypeTransitionTable rtPTransTable = {
-  4U,
+  3U,
   rtPTransitions
 };
 
