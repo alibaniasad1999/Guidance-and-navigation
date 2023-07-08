@@ -39,6 +39,7 @@ for i=1:length(position_array)
         end
         axis tight
         axis equal
+        axis([-100, 100, -100 100])
         set(gca, 'FontSize', 16)
  
     xlabel('X(m)', 'interpreter', 'latex', 'FontSize', 24);

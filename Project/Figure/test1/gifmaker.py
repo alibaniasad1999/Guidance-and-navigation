@@ -16,8 +16,8 @@ def create_gif(image_list, gif_name, duration=0.01):
         width, height = img.size
         for y in range(height):
             for x in range(width):
-                # delete bright pixels
-                if pixdata[x, y] == (255, 255, 255, 255):
+                # delete bright pixels with lower threshhold
+                if pixdata[x, y][0] > 150 and pixdata[x, y][1] > 150 and pixdata[x, y][2] > 150:
                     pixdata[x, y] = (255, 255, 255, 0)
         frames.append(img)
 
