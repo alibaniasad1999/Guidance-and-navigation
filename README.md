@@ -1,4 +1,5 @@
 # Guidance-and-navigation
+## regeneration of the paper "Optimized flocking of autonomous drones in confined environments"
 Sharif University of Technology course
 Here used Vasarhely guidance law to guide a swarm of UAVs to a target. The code is written in MATLAB and the simulation is done in HIL using Arduino Mega2560.
 Here is the link to the paper: https://www.science.org/doi/10.1126/scirobotics.aat3536
